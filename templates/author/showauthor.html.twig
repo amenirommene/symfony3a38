@@ -1,0 +1,6 @@
+{% for a in list  %}
+{% if a.id == monid %}
+<li>{{a.id}} - {{a.username}} 
+- <img src={{asset(a.picture)}} > </li>
+{% endif %}
+{% endfor %}

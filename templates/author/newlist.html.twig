@@ -1,0 +1,16 @@
+
+<ul>
+{% if list is defined %}
+{% if list is empty %}
+<h1>Tableau vide</h1>
+{% else %}
+{% for a in list  %}
+<li>{{a.id}} - {{a.username | upper}} 
+-  <a href={{path('app_author_details_db',{'id':a.id})}}>Details</a></li>
+{% endfor %}
+{% endif %}
+{% else %}
+<h1>Tableau non défini </h1>
+{% endif %}
+</ul>
+Le nombre d'auteur est: {{list | length}}

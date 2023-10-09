@@ -1,0 +1,18 @@
+{% set nb=0 %}
+<ul>
+{% if list is defined %}
+{% if list is empty %}
+<h1>Tableau vide</h1>
+{% else %}
+{% for a in list  %}
+{% set nb=nb+a.nb_books %}
+<li>{{a.id}}- {{a.nb_books}} - {{a.username | upper}} 
+- <img src={{asset(a.picture)}} > <a href={{path('app_author_details',{'id':a.id})}}>Details</a></li>
+{% endfor %}
+{% endif %}
+{% else %}
+<h1>Tableau non défini </h1>
+{% endif %}
+</ul>
+Le nombre d'auteur est: {{list | length}}
+<br>le nombre de livre est {{nb}}
